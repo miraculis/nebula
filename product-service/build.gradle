@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.1.RELEASE")
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral() // maven { url: 'http://jcenter.bintray.com' }
+    flatDir {
+        dirs "$projectDir/../libs"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+bootJar {
+    baseName = 'products-service'
+    version =  '0.1.0'
+}
+
+    
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-cassandra', version: '2.1.1.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.1.RELEASE'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+    compile group: 'org.springframework.kafka', name: 'spring-kafka', version: '2.2.2.RELEASE'
+    compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.6.0'
+    compile group: 'neb', name: 'pojos', version: '0.1.6'
+}

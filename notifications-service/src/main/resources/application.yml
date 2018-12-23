@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: notifier
+
+logging:
+  file: nebula-ntf-service.log
+
+kafka:
+  bootstrap-address: localhost:9092

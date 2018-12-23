@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: wordschecker
+
+logging:
+  file: nebula-wc-service.log
+
+kafka:
+  bootstrap-address: localhost:9092

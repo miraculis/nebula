@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: product
+  data:
+    cassandra:
+      keyspace-name: nebula
+
+logging:
+  file: nebula-product-service.log
+  level.com.datastax.driver.core.QueryLogger.NORMAL: DEBUG
+
+server:
+  port: 8090
+
+kafka:
+  bootstrap-address: localhost:9092
+
